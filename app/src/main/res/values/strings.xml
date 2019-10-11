@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">MyCheckins</string>
+    <string name="checkin_title_label">Title</string>
+    <string name="checkin_title_text">What is the name of the Checkin?</string>
+    <string name="checkin_place_label">Place</string>
+    <string name="checkin_place_text">Where is the place of the Checkin?</string>
+    <string name="checkin_details_label">Details</string>
+    <string name="checkin_details_text">What are the details of the Checkin?</string>
+    <string name="checkin_date_label">When did you Checkin?</string>
+    <string name="checkin_date_picker">Date of Checkin:</string>
+    <string name="checkin_location_label">Where is the location of the Checkin?</string>
+    <string name="checkin_image_label">Place an image of the Checkin?</string>
+    <string name="checkin_share_label">Did you want to share this Checkin?</string>
+
+    <string name="new_checkin">New Checkin</string>
+    <string name="show_subtitle">Show Subtitle</string>
+    <string name="hide_subtitle">Hide Subtitle</string>
+    <string name="subtitle_format">%1$d checkins</string>
+    <string name="title_activity_maps">Map</string>
+    
+    <string name="checkin_summary"> I checked in at %1$s on %2$s!
+        \nThe place is %3$s
+        \nDetails: %4$s
+    </string>
+    <string name="checkin_summary_subject">Checkin Summary</string>
+    <string name="send_summary">Send checkin summary via</string>
+</resources>
