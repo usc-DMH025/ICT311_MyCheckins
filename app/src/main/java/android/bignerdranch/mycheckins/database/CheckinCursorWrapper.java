@@ -19,8 +19,8 @@ public class CheckinCursorWrapper extends CursorWrapper {
         long date = getLong(getColumnIndex(CheckinDbSchema.CheckinTable.Cols.DATE));
         String place = getString(getColumnIndex(CheckinDbSchema.CheckinTable.Cols.PLACE));
         String details = getString(getColumnIndex(CheckinDbSchema.CheckinTable.Cols.DETAILS));
-        //double lat = getDouble(getColumnIndex(CheckinDbSchema.CheckinTable.Cols.LOCATION));
-        //double lon = getDouble(getColumnIndex(CheckinDbSchema.CheckinTable.Cols.LOCATION));
+        double lat = getDouble(getColumnIndex(CheckinDbSchema.CheckinTable.Cols.LATITUDE));
+        double lon = getDouble(getColumnIndex(CheckinDbSchema.CheckinTable.Cols.LONGITUDE));
 
 
         Checkin checkin = new Checkin(UUID.fromString(uuidString));
@@ -28,8 +28,8 @@ public class CheckinCursorWrapper extends CursorWrapper {
         checkin.setDate(new Date(date));
         checkin.setPlace(place);
         checkin.setDetails(details);
-        //checkin.setLat(lat);
-        //checkin.setLon(lon);
+        checkin.setLat(lat);
+        checkin.setLon(lon);
 
         return checkin;
     }

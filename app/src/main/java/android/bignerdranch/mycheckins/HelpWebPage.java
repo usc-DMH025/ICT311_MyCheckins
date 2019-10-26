@@ -1,11 +1,16 @@
 package android.bignerdranch.mycheckins;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Button;
 import android.widget.ProgressBar;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,6 +26,7 @@ public class HelpWebPage extends AppCompatActivity {
 
         mWebView =(WebView) findViewById(R.id.webview);
         mWebView.getSettings().setJavaScriptEnabled(true);
+        mWebView.loadUrl("https://www.wikihow.com/Check-In-on-Facebook");
         mWebView.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request)
@@ -46,7 +52,6 @@ public class HelpWebPage extends AppCompatActivity {
             }
         });
 
-        mWebView.loadUrl("https://www.wikihow.com/Check-In-on-Facebook");
     }
 
     @Override
@@ -56,5 +61,23 @@ public class HelpWebPage extends AppCompatActivity {
         } else {
             super.onBackPressed();
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.fragment_checkin_list, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.help_web) {
+            mWebView.loadUrl("https://www.wikihow.com/Check-In-on-Facebook");
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

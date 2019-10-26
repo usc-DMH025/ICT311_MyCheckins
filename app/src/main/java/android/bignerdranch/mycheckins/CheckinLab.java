@@ -114,8 +114,8 @@ public class CheckinLab {
         values.put(CheckinDbSchema.CheckinTable.Cols.PLACE, checkin.getPlace());
         values.put(CheckinDbSchema.CheckinTable.Cols.DETAILS, checkin.getDetails());
         values.put(CheckinDbSchema.CheckinTable.Cols.IMAGE, checkin.getImageFilename());
-        //values.put(CheckinDbSchema.CheckinTable.Cols.LOCATION, checkin.getLat());
-        //values.put(CheckinDbSchema.CheckinTable.Cols.LOCATION, checkin.getLon());
+        values.put(CheckinDbSchema.CheckinTable.Cols.LATITUDE, checkin.getLat());
+        values.put(CheckinDbSchema.CheckinTable.Cols.LONGITUDE, checkin.getLon());
 
         return values;
     }

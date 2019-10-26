@@ -27,8 +27,13 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".MapsActivity"
+            android:label="@string/title_activity_maps" >
+        </activity>
+        <activity
             android:name=".CheckinPagerActivity"
-            android:parentActivityName=".CheckinListActivity"></activity>
+            android:parentActivityName=".CheckinListActivity">
+        </activity>
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />

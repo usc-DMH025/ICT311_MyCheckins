@@ -2,7 +2,13 @@ package android.bignerdranch.mycheckins;
 
 import androidx.fragment.app.FragmentActivity;
 
+import android.content.Context;
+import android.content.Intent;
+import android.location.Location;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -11,6 +17,8 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import java.time.LocalTime;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
@@ -27,7 +35,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mapFragment.getMapAsync(this);
     }
 
-
     /**
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
@@ -43,6 +50,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         updateUI();
     }
+
+    /*public static Intent newIntent (Context context, Uri uri) {
+        Intent intent = new Intent(context, CheckinFragment.class);
+        intent.setData(uri);
+        return intent;
+    }*/
 
     private void updateUI() {
         LatLng myPoint = new LatLng(mCheckin.getLat(), mCheckin.getLon());

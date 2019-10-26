@@ -22,7 +22,8 @@ public class CheckinBaseHelper extends SQLiteOpenHelper {
                 CheckinTable.Cols.DATE + ", " +
                 CheckinTable.Cols.PLACE + ", " +
                 CheckinTable.Cols.DETAILS + ", " +
-                //CheckinTable.Cols.LOCATION + ", " +
+                CheckinTable.Cols.LATITUDE + ", " +
+                CheckinTable.Cols.LONGITUDE + ", " +
                 CheckinTable.Cols.IMAGE + ")"
         ); //IDK if this is correct
     }

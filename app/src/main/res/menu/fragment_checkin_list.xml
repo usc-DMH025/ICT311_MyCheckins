@@ -9,7 +9,9 @@
         app:showAsAction="ifRoom|withText"/>
 
     <item
-        android:id="@+id/show_subtitle"
-        android:title="@string/show_subtitle"
+        android:id="@+id/help_web"
+        android:icon="@drawable/ic_menu_web"
+        android:title="Help"
         app:showAsAction="ifRoom"/>
+
 </menu>
