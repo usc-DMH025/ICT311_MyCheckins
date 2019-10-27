@@ -18,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class HelpWebPage extends AppCompatActivity {
     private WebView mWebView;
     private ProgressBar mProgressBar;
+    private static final String URL = "http://www.wikihow.com/Check-In-on-Facebook";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,13 +28,14 @@ public class HelpWebPage extends AppCompatActivity {
         mWebView = (WebView) findViewById(R.id.webview);
         mWebView.getSettings().setJavaScriptEnabled(true);
         mWebView.getSettings().setPluginState(WebSettings.PluginState.ON);
-        mWebView.setWebViewClient(new WebViewClient(){
+        mWebView.setWebChromeClient(new WebChromeClient());
+        mWebView.setWebViewClient(new WebViewClient() {
             @Override
-            public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request)
-            {
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 return false;
             }
         });
+        mWebView.loadUrl(URL);
 
         mProgressBar = (ProgressBar) findViewById(R.id.progress_bar);
         mProgressBar.setMax(100);
@@ -74,10 +76,7 @@ public class HelpWebPage extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.help_web) {
-            setContentView(mWebView);
-            mWebView.loadUrl("https://www.wikihow.com/Check-In-on-Facebook");
-
-            Intent webIntent = new Intent(Intent.ACTION_VIEW);
+            Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(URL));
             startActivity(webIntent);
             return true;
         }
