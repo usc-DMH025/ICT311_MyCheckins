@@ -10,8 +10,8 @@
 
     <item
         android:id="@+id/help_web"
-        android:icon="@drawable/ic_menu_web"
-        android:title="Help"
+        android:icon="@drawable/ic_menu_help"
+        android:title="@string/help"
         app:showAsAction="ifRoom"/>
 
 </menu>

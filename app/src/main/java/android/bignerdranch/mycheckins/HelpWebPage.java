@@ -23,9 +23,8 @@ public class HelpWebPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_helpwebpage);
 
-        mWebView =(WebView) findViewById(R.id.webview);
+        mWebView = (WebView) findViewById(R.id.webview);
         mWebView.getSettings().setJavaScriptEnabled(true);
-        mWebView.loadUrl("https://www.wikihow.com/Check-In-on-Facebook");
         mWebView.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request)
@@ -33,6 +32,8 @@ public class HelpWebPage extends AppCompatActivity {
                 return false;
             }
         });
+
+        //mWebView.loadUrl("https://www.wikihow.com/Check-In-on-Facebook");
 
         mProgressBar = (ProgressBar) findViewById(R.id.progress_bar);
         mProgressBar.setMax(100);
@@ -50,7 +51,6 @@ public class HelpWebPage extends AppCompatActivity {
                 getSupportActionBar().setSubtitle(title);
             }
         });
-
     }
 
     @Override
@@ -74,6 +74,7 @@ public class HelpWebPage extends AppCompatActivity {
 
         if (id == R.id.help_web) {
             mWebView.loadUrl("https://www.wikihow.com/Check-In-on-Facebook");
+            //setContentView(mWebView);
             return true;
         }
 

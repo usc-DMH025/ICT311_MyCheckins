@@ -41,10 +41,6 @@ public class CheckinListFragment extends Fragment {
                 .findViewById(R.id.checkin_recycler_view);
         mCheckinRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        if (savedInstanceState != null) {
-            mSubtitleVisible = savedInstanceState.getBoolean(SAVED_SUBTITLE_VISIBLE);
-        }
-
         updateUI();
 
         return view;
@@ -83,19 +79,6 @@ public class CheckinListFragment extends Fragment {
         }
     }
 
-    /*private void updateSubtitle() {
-        CheckinLab checkinLab = CheckinLab.get(getActivity());
-        int checkinCount = checkinLab.getCheckins().size();
-        String subtitle = getString(R.string.subtitle_format, checkinCount);
-
-        if (!mSubtitleVisible) {
-            subtitle = null;
-        }
-
-        AppCompatActivity activity = (AppCompatActivity) getActivity();
-        activity.getSupportActionBar().setSubtitle(subtitle);
-    }*/
-
     private void updateUI() {
         CheckinLab checkinLab = CheckinLab.get(getActivity());
         List<Checkin> checkins = checkinLab.getCheckins();
@@ -107,8 +90,6 @@ public class CheckinListFragment extends Fragment {
             mAdapter.setCheckins(checkins);
             mAdapter.notifyDataSetChanged();
         }
-
-        //updateSubtitle();
     }
 
     private class CheckinHolder extends RecyclerView.ViewHolder
