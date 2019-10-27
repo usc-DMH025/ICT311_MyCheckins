@@ -13,6 +13,7 @@
     <string name="checkin_share_label">Did you want to share this Checkin?</string>
 
     <string name="new_checkin">New Checkin</string>
+    <string name="delete_checkin">Delete Checkin</string>
     <string name="help">Help</string>
     <string name="show_subtitle">Show Subtitle</string>
     <string name="hide_subtitle">Hide Subtitle</string>

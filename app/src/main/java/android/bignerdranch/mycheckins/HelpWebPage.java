@@ -33,8 +33,6 @@ public class HelpWebPage extends AppCompatActivity {
             }
         });
 
-        //mWebView.loadUrl("https://www.wikihow.com/Check-In-on-Facebook");
-
         mProgressBar = (ProgressBar) findViewById(R.id.progress_bar);
         mProgressBar.setMax(100);
         mWebView.setWebChromeClient(new WebChromeClient() {
@@ -74,7 +72,7 @@ public class HelpWebPage extends AppCompatActivity {
 
         if (id == R.id.help_web) {
             mWebView.loadUrl("https://www.wikihow.com/Check-In-on-Facebook");
-            //setContentView(mWebView);
+            setContentView(mWebView);
             return true;
         }
 

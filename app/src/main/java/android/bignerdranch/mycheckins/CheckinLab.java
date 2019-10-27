@@ -119,4 +119,14 @@ public class CheckinLab {
 
         return values;
     }
+
+    public void deleteCheckin(Checkin checkin){
+        String uuidString = checkin.getId().toString();
+
+        mDatabase.delete(CheckinDbSchema.CheckinTable.NAME,
+                CheckinDbSchema.CheckinTable.Cols.UUID + " = ?",
+                new String[]{
+                        uuidString
+                });
+    }
 }

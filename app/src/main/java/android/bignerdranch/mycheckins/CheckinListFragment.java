@@ -1,5 +1,6 @@
 package android.bignerdranch.mycheckins;
 
+import android.bignerdranch.mycheckins.database.CheckinDbSchema;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -53,15 +54,11 @@ public class CheckinListFragment extends Fragment {
     }
 
     @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putBoolean(SAVED_SUBTITLE_VISIBLE, mSubtitleVisible);
-    }
-
-    @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.fragment_checkin_list, menu);
+
+        menu.removeItem(R.id.delete_checkin);
     }
 
     @Override

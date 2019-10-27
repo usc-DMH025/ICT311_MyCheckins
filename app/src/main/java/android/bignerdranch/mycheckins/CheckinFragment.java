@@ -18,7 +18,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -52,7 +51,6 @@ public class CheckinFragment extends Fragment {
     private static final int REQUEST_IMAGE = 2;
 
     private Checkin mCheckin;
-    private MapsActivity mMap;
     private File mImageFile;
     private EditText mTitleField;
     private EditText mPlaceField;
@@ -132,6 +130,12 @@ public class CheckinFragment extends Fragment {
     public void onStop() {
         super.onStop();
         mClient.disconnect();
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.fragment_checkin_list, menu);
     }
 
     @Override
@@ -246,8 +250,7 @@ public class CheckinFragment extends Fragment {
         });
 
         mLocationView = (TextView) v.findViewById(R.id.checkin_location_text);
-        String stringLocation = ("Lat: " + mCheckin.getLat() + "," +  "Lon:" + mCheckin.getLon());
-        mLocationView.setText(stringLocation);
+        mLocationView.setText("Lat: " + mCheckin.getLat() + "," +  "Lon:" + mCheckin.getLon());
 
         mLocationButton = (Button) v.findViewById(R.id.checkin_location_button);
         mLocationButton.setOnClickListener(new View.OnClickListener() {

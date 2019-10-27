@@ -3,6 +3,8 @@ package android.bignerdranch.mycheckins;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +22,9 @@ public class CheckinPagerActivity extends AppCompatActivity {
 
     private ViewPager mViewPager;
     private List<Checkin> mCheckins;
+
+    private Checkin deleteCheckin;
+    private int dCheckin = -1;
 
     public static Intent newIntent(Context packageContext, UUID checkinId) {
         Intent intent = new Intent(packageContext, CheckinPagerActivity.class);
@@ -44,6 +49,12 @@ public class CheckinPagerActivity extends AppCompatActivity {
             @Override
             public Fragment getItem(int position) {
                 Checkin checkin = mCheckins.get(position);
+
+                if (dCheckin == -1){
+                    dCheckin = position;
+                    deleteCheckin = checkin;
+                }
+
                 return CheckinFragment.newInstance(checkin.getId());
             }
 
@@ -57,6 +68,33 @@ public class CheckinPagerActivity extends AppCompatActivity {
             if (mCheckins.get(i).getId().equals(checkinId)) {
                 mViewPager.setCurrentItem(i);
             }
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.fragment_checkin_list, menu);
+        menu.findItem(R.id.delete_checkin);
+        menu.removeItem(R.id.new_checkin);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch (item.getItemId()){
+            case R.id.delete_checkin:
+
+                CheckinLab checkinLab = CheckinLab
+                        .get(getApplicationContext());
+                checkinLab.deleteCheckin(deleteCheckin);
+
+                Intent intent = new Intent(this, CheckinListActivity.class);
+                startActivity(intent);
+                finish();
+
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 }

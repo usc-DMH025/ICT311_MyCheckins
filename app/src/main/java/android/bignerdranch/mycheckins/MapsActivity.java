@@ -16,6 +16,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.time.LocalTime;
@@ -24,6 +25,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private GoogleMap mMap;
     private Checkin mCheckin;
+
+    private Marker mLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,11 +54,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         updateUI();
     }
 
-    /*public static Intent newIntent (Context context, Uri uri) {
-        Intent intent = new Intent(context, CheckinFragment.class);
-        intent.setData(uri);
-        return intent;
-    }*/
 
     private void updateUI() {
         LatLng myPoint = new LatLng(mCheckin.getLat(), mCheckin.getLon());

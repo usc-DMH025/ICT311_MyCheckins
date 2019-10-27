@@ -9,6 +9,12 @@
         app:showAsAction="ifRoom|withText"/>
 
     <item
+        android:id="@+id/delete_checkin"
+        android:icon="@drawable/ic_menu_delete"
+        android:title="@string/delete_checkin"
+        app:showAsAction="ifRoom|withText"/>
+
+    <item
         android:id="@+id/help_web"
         android:icon="@drawable/ic_menu_help"
         android:title="@string/help"

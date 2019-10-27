@@ -25,11 +25,10 @@ public class CheckinBaseHelper extends SQLiteOpenHelper {
                 CheckinTable.Cols.LATITUDE + ", " +
                 CheckinTable.Cols.LONGITUDE + ", " +
                 CheckinTable.Cols.IMAGE + ")"
-        ); //IDK if this is correct
+        );
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
     }
-
 }
