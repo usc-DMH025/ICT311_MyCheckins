@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
@@ -25,7 +26,8 @@ public class HelpWebPage extends AppCompatActivity {
 
         mWebView = (WebView) findViewById(R.id.webview);
         mWebView.getSettings().setJavaScriptEnabled(true);
-        mWebView.setWebViewClient(new WebViewClient() {
+        mWebView.getSettings().setPluginState(WebSettings.PluginState.ON);
+        mWebView.setWebViewClient(new WebViewClient(){
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request)
             {
@@ -63,6 +65,7 @@ public class HelpWebPage extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.fragment_checkin_list, menu);
+        menu.findItem(R.id.help_web);
         return true;
     }
 
@@ -71,8 +74,11 @@ public class HelpWebPage extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.help_web) {
-            mWebView.loadUrl("https://www.wikihow.com/Check-In-on-Facebook");
             setContentView(mWebView);
+            mWebView.loadUrl("https://www.wikihow.com/Check-In-on-Facebook");
+
+            Intent webIntent = new Intent(Intent.ACTION_VIEW);
+            startActivity(webIntent);
             return true;
         }
 

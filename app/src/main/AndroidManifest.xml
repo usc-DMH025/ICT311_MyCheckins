@@ -30,6 +30,9 @@
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" >
         </activity>
+        <activity android:name=".HelpWebPage"
+            android:label="@string/help">
+        </activity>
         <activity
             android:name=".CheckinPagerActivity"
             android:parentActivityName=".CheckinListActivity">
